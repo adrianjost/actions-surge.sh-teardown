@@ -1,4 +1,4 @@
-# Actions_Surge.sh-teardown
+# Surge.sh Teardown - GitHub Action
 
 An GitHub Action to TearDown surge.sh projects that match a regex
 
