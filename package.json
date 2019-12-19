@@ -1,6 +1,6 @@
 {
   "name": "@adrianjost/actions-surge.sh-teardown",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "An GitHub Action to TearDown surge.sh projects that match a regex",
   "main": "dist/index.js",
   "scripts": {

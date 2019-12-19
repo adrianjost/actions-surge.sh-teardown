@@ -40,7 +40,7 @@ You can get your token by running `npx surge token` in your command line.
 ## Example usage
 
 ```yml
-uses: adrianjost/actions-surge.sh-teardown@master
+uses: adrianjost/actions-surge.sh-teardown
 with:
   regex: '[2-9]+ months ago'
 env:
@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: teardown
-        uses: adrianjost/actions-surge.sh-teardown@master
+        uses: adrianjost/actions-surge.sh-teardown
         with:
           # teardown projects older than 2 months
           regex: '[2-9]+ months ago'
