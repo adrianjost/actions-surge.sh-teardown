@@ -22,12 +22,26 @@ run `surge list` to list all your currently active projects
 If set to true, no changes will be made to your surge account.
 Instead the teardown command will be logged to the console.
 
+### ENVs
+
+#### `SURGE_LOGIN`
+
+The env variable `SURGE_LOGIN` must be defined. This is usually your surge.sh email.
+
+#### `SURGE_TOKEN`
+
+The env variable `SURGE_TOKEN` must be defined.
+You can get your token by running `npx surge token` in your command line.
+
 ## Example usage
 
 ```yml
 uses: adrianjost/actions-surge.sh-teardown@master
 with:
   regex: '[2-9]+ months ago'
+env:
+  SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+  SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 ```
 
 ```yml
