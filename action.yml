@@ -1,0 +1,10 @@
+name: 'Surge Teardown'
+description: 'Teardown Surge.sh projects that match a regex'
+inputs:
+  regex: # id of input
+    description: 'Regex string'
+    required: true
+    default: "[2-9]+ months ago"
+runs:
+  using: 'node12'
+  main: 'index.js'
