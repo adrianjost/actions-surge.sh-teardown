@@ -1,4 +1,4 @@
-name: 'Surge Teardown'
+name: 'Surge.sh Teardown'
 description: 'Teardown Surge.sh projects that match a regex'
 branding:
   icon: 'archive'
