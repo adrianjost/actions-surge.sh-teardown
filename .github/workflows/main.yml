@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  create_and_teardown:
+    runs-on: ubuntu-latest
+    name: dryrun a teardown of all projects
+    steps:
+      - name: teardown
+        uses: adrianjost/actions-surge.sh-teardown@master
+        with:
+          regex: "ago"
+        env:
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}

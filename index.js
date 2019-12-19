@@ -38,7 +38,11 @@ async function getDeploys() {
 }
 
 async function teardownProject(domain) {
-	return executeCmd(`surge teardown ${domain}`);
+	if(core.getInput("dryrun")){
+		console.log(`DRYRUN: surge teardown ${domain}`)
+	}else{
+		return executeCmd(`surge teardown ${domain}`);
+	}
 }
 
 async function teardown(REGEX) {

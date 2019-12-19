@@ -17,6 +17,11 @@ Example lines:
 
 run `surge list` to list all your currently active projects
 
+### `dryrun`
+
+If set to true, no changes will be made to your surge account.
+Instead the teardown command will be logged to the console.
+
 ## Example usage
 
 ```yml
