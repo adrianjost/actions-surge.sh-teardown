@@ -1,5 +1,8 @@
 name: 'Surge Teardown'
 description: 'Teardown Surge.sh projects that match a regex'
+branding:
+  icon: 'archive'
+  color: 'green'
 inputs:
   regex:
     description: 'Regex string'
