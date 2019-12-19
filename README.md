@@ -4,11 +4,15 @@ An GitHub Action to TearDown surge.sh projects that match a regex
 
 ## Inputs
 
-### `regex`
+### `regex` - String
 
 **Required** The regex to match the `surge list` line.
 
-Example lines:
+**Example regex:**
+
+- `[2-9] months ago` to teardown all projects that have not been touched in the last 2-9 months.
+
+**Example lines:**
 
 - `1576772346647 docs.406.nuxt.schul-cloud.surge.sh      8 minutes ago   surge   surge.sh   Standard`
 - `1576695082855 docs.391.nuxt.schul-cloud.surge.sh      22 hours ago    surge   surge.sh   Standard`
@@ -17,7 +21,7 @@ Example lines:
 
 run `surge list` to list all your currently active projects
 
-### `dryrun`
+### `dryrun` - Boolean
 
 If set to true, no changes will be made to your surge account.
 Instead the teardown command will be logged to the console.
