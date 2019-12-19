@@ -1,21 +1,21 @@
 #! /usr/bin/env node
 
-const core = require("@actions/core");
 const { exec } = require("child_process");
+const core = require("@actions/core");
 const stripAnsi = require("strip-ansi");
 
 function executeCmd(command) {
 	return new Promise((resolve, reject) => {
 		exec(command, function(error, stdout) {
 			error
-				? reject(stripAnsi(error).trim())
+				? reject(error)
 				: resolve(stripAnsi(stdout).trim());
 		});
 	});
 }
 
 async function getDeploys() {
-	const OUTPUT = await executeCmd("surge list");
+	const OUTPUT = await executeCmd("npx surge list");
 	const LINES = stripAnsi(OUTPUT)
 		.trim()
 		.split("\n")
@@ -39,9 +39,9 @@ async function getDeploys() {
 
 async function teardownProject(domain) {
 	if(core.getInput("dryrun")){
-		console.log(`DRYRUN: surge teardown ${domain}`)
+		console.log(`DRYRUN: npx surge teardown ${domain}`)
 	}else{
-		return executeCmd(`surge teardown ${domain}`);
+		return executeCmd(`npx surge teardown ${domain}`);
 	}
 }
 

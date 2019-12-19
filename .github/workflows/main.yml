@@ -1,3 +1,4 @@
+name: DRYRUN
 on: [push]
 
 jobs:

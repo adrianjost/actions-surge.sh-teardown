@@ -2,13 +2,18 @@
   "name": "@adrianjost/actions-surge.sh-teardown",
   "version": "0.1.0",
   "description": "An GitHub Action to TearDown surge.sh projects that match a regex",
-  "main": "index.js",
-  "scripts": {},
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build index.js -o dist"
+  },
   "keywords": [],
   "author": "Adrian Jost",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.0",
+    "@actions/core": "^1.1.1",
     "strip-ansi": "^6.0.0"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.20.5"
   }
 }
