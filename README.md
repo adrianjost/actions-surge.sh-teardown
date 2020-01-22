@@ -23,7 +23,7 @@ run `surge list` to list all your currently active projects
 
 ### `dryrun` - Boolean
 
-If set to true, no changes will be made to your surge account.
+If set to `true` or `1`, no changes will be made to your surge account.
 Instead the teardown command will be logged to the console.
 
 ### ENVs

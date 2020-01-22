@@ -38,7 +38,7 @@ async function getDeploys() {
 }
 
 async function teardownProject(domain) {
-	if(core.getInput("dryrun")){
+	if([true, "true", 1, "1"].includes(core.getInput("dryrun"))){
 		console.log(`DRYRUN: npx surge teardown ${domain}`)
 	}else{
 		return executeCmd(`npx surge teardown ${domain}`);
