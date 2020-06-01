@@ -2,6 +2,10 @@
 
 An GitHub Action to TearDown surge.sh projects that match a regex
 
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+
+[![Build](https://github.com/adrianjost/actions-surge.sh-teardown/workflows/Build/badge.svg)](https://github.com/adrianjost/actions-surge.sh-teardown/actions?query=workflow%3ABuild) [![Release](https://github.com/adrianjost/actions-surge.sh-teardown/workflows/Release/badge.svg)](https://github.com/adrianjost/actions-surge.sh-teardown/actions?query=workflow%3ARelease)
+
 ## Inputs
 
 ### `regex` - String
@@ -68,3 +72,7 @@ jobs:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 ```
+
+## Development
+
+Please follow the [Angular commit message guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit) to create meaningfull release changelogs.
