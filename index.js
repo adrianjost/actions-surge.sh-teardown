@@ -19,7 +19,7 @@ async function getDeploys() {
 	const LINES = stripAnsi(OUTPUT)
 		.trim()
 		.split("\n")
-		.map(l => l.trim());
+		.map(l => l.trim().replace(/ {3,}/g, "  "));
 	const DEPLOYS = LINES.map(line => {
 		deploy = line.split("  ").map(a => a.trim());
 		const [id, domain] = deploy[0].split(" ");
