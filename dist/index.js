@@ -2137,7 +2137,7 @@ class BearerCredentialHandler {
         this.token = token;
     }
     // currently implements pre-authorization
-    // TODO [$62ffd80968b8a20008ed7bd7]: support preAuth = false where it hooks on 401
+    // TODO [#1517]: support preAuth = false where it hooks on 401
     prepareRequest(options) {
         if (!options.headers) {
             throw Error('The request has no headers');
@@ -2160,7 +2160,7 @@ class PersonalAccessTokenCredentialHandler {
         this.token = token;
     }
     // currently implements pre-authorization
-    // TODO [$62ffd80968b8a20008ed7bd8]: support preAuth = false where it hooks on 401
+    // TODO [#1518]: support preAuth = false where it hooks on 401
     prepareRequest(options) {
         if (!options.headers) {
             throw Error('The request has no headers');
