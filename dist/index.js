@@ -2846,6 +2846,8 @@ const { exec } = __nccwpck_require__(81);
 const core = __nccwpck_require__(186);
 const stripAnsi = __nccwpck_require__(591);
 
+const isDryRun = [true, "true", 1, "1"].includes(core.getInput("dryrun"))
+
 function executeCmd(command) {
 	return new Promise((resolve, reject) => {
 		exec(command, function(error, stdout) {
@@ -2864,10 +2866,8 @@ async function getDeploys() {
 		.map(l => l.trim().replace(/ {3,}/g, "  "));
 	const DEPLOYS = LINES.map(line => {
 		deploy = line.split("  ").map(a => a.trim());
-		const [id, domain] = deploy[0].split(" ");
-		const [, timestamp, provider, host, plan] = deploy;
+		const [domain, timestamp, provider, host, plan] = deploy;
 		return {
-			id,
 			domain,
 			timestamp,
 			provider,
@@ -2880,7 +2880,7 @@ async function getDeploys() {
 }
 
 async function teardownProject(domain) {
-	if([true, "true", 1, "1"].includes(core.getInput("dryrun"))){
+	if(isDryRun){
 		console.log(`DRYRUN: npx surge teardown ${domain}`)
 	}else{
 		return executeCmd(`npx surge teardown ${domain}`);
@@ -2909,6 +2909,7 @@ async function teardown(REGEX) {
 }
 
 try {
+	console.log("DryRun:", isDryRun ? "true" : "false");
 	const REGEX = new RegExp(core.getInput("regex"), "i");
 	teardown(REGEX);
 } catch (error) {
