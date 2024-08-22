@@ -22,10 +22,8 @@ async function getDeploys() {
 		.map(l => l.trim().replace(/ {3,}/g, "  "));
 	const DEPLOYS = LINES.map(line => {
 		deploy = line.split("  ").map(a => a.trim());
-		const [id, domain] = deploy[0].split(" ");
-		const [, timestamp, provider, host, plan] = deploy;
+		const [domain, timestamp, provider, host, plan] = deploy;
 		return {
-			id,
 			domain,
 			timestamp,
 			provider,
