@@ -1,5 +1,8 @@
 name: DRYRUN
-on: [push]
+on:
+  push:
+    branches:
+      - '!master'
 
 jobs:
   create_and_teardown:
