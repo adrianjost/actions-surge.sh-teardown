@@ -76,3 +76,5 @@ jobs:
 ## Development
 
 Please follow the [Angular commit message guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit) to create meaningfull release changelogs.
+
+Run: `env INPUT_DRYRUN=true node ./index.js` for testing. You might have to install the surge package first (`npm i -g surge`)
