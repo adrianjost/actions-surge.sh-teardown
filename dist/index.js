@@ -2859,7 +2859,7 @@ function executeCmd(command) {
 }
 
 async function getDeploys() {
-	const OUTPUT = await executeCmd("npx surge list");
+	const OUTPUT = await executeCmd("npx -y --package='surge' -c 'surge list'");
 	const LINES = stripAnsi(OUTPUT)
 		.trim()
 		.split("\n")
@@ -2881,13 +2881,14 @@ async function getDeploys() {
 
 async function teardownProject(domain) {
 	if(isDryRun){
-		console.log(`DRYRUN: npx surge teardown ${domain}`)
+		console.log(`DRYRUN: npm exec surge teardown ${domain}`)
 	}else{
-		return executeCmd(`npx surge teardown ${domain}`);
+		return executeCmd(`npx -y --package='surge' -c 'surge teardown ${domain}'`);
 	}
 }
 
 async function teardown(REGEX) {
+	await executeCmd("npm i surge")
 	const deploys = await getDeploys();
 	const toTearDown = deploys.filter(deploy => deploy.line.match(REGEX));
 	console.log(`search for projects that match ${REGEX}`);
